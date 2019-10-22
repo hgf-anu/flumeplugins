@@ -60,6 +60,6 @@ public class MySink extends AbstractSink implements Configurable {
     @Override
     public void configure(Context context) {
         prefix = context.getString("prefix", "PRE");
-        suffix = context.getString("suffix");
+        suffix = context.getString("suffix","END");
     }
 }
