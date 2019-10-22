@@ -59,6 +59,7 @@ public class MySink extends AbstractSink implements Configurable {
 
     @Override
     public void configure(Context context) {
+        //如果不加默认值,就会被设置为NULL.如果不要的话设置为""
         prefix = context.getString("prefix", "PRE");
         suffix = context.getString("suffix","END");
     }
