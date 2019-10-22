@@ -24,6 +24,7 @@ public class MySink extends AbstractSink implements Configurable {
 
         //事务控制--开始事务
         transaction.begin();
+
         try {
             //1.处理数据
             //1.1拿数据,可能拿不到,channel不一定有数据,最好进行判断
@@ -37,6 +38,8 @@ public class MySink extends AbstractSink implements Configurable {
 
             //1.3处理完数据后,提交事务
             transaction.commit();
+
+            status = Status.READY;
 
         } catch (Throwable t) {
             transaction.rollback();
